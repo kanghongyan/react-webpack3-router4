@@ -21,14 +21,26 @@ promise fetch Object.assign
 
 ## react-router 4
 
-  ### <Router>
-  只有一个属性history
+  **&lt;Router&gt;**
 
-  <switch>
+
+  | props | describe  |
+  | ---- | --- |
+  | history | 可以用其他的history库 |
+  | children |  任意组件。children.length必须为1 |
+
+  **&lt;switch&gt;**
 
   只render第一个匹配到的route。
 
-  <Route>
+  | props | describe  |
+  | ---- | --- |
+  | location | match children elements instead of the current history location |
+  | children |  &lt;Route&gt;或&lt;Redirect&gt; |
+
+  **&lt;Route&gt;**
+
+
 
 1. render function
 
@@ -71,16 +83,19 @@ strict: bool
          /bar/   /bar                          strict=true  =>  unmatched!
          /bar/   /bar                          strict=false =>  matched!
 
-   tip: exact和strict都为true可以
+   tip: exact和strict都为true可以精确匹配没有trailing slash的路径
 
-6. location todo:需要再仔细看https://reacttraining.com/react-router/web/api/Route/location-object
-    不会parse query，[需要再引入一个包](https://github.com/ReactTraining/react-router/issues/4410)
+6. [location](https://reacttraining.com/react-router/web/api/Route/location-object)
+    不会parse query，[需要手动parse](https://github.com/ReactTraining/react-router/issues/4410)
 
 
 
 match.isExact - (boolean) true if the entire URL was matched (no trailing characters)
 match.url - (string) URL里匹配到的部分（好像没有结尾的/）. Useful for building nested <Link>s
 match.path - (string) Route中的path pattern
+
+
+## below is creact-react-app
 
 This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app).
 
