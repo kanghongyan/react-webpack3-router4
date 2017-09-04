@@ -1,59 +1,27 @@
-path.js中：
+1. 通过webpack配置可以直接在代码中用到的：
 
-publicPath:
-  dev: / pro: paths.servedPath
-
-publicUrl：
-
-  dev：'' pro: 去掉/
-  1.process.env.PUBLIC_URL='XXXXXXX'
-  2.package.json里的homepage.如 caipiao.m.58.com/app/lottery_m
+  process.env.NODE_ENV
+  process.env.PUBLIC_URL (dev环境下是'', pro环境下与homepage一致)
 
 
-servedPath:(依据publicUrl)
-
-  publicUrl里的pathname加上/ 例如：app/lottery_m/
-
-
-
-
-servedPath:
-publicUrl加上/
-
-
-在有.env*文件的情况下，不用path.js里的配置
-dotenvFiles:
-0 = "/Users/khongyan/WebstormProjects/react_test/my-app-webpack2/.env.development.local"
-1 = "/Users/khongyan/WebstormProjects/react_test/my-app-webpack2/.env.development"
-2 = "/Users/khongyan/WebstormProjects/react_test/my-app-webpack2/.env.local"
-3 = "/Users/khongyan/WebstormProjects/react_test/my-app-webpack2/.env"
-
-通过webpack配置可以直接在代码中用到的：
-process.env.NODE_ENV
-process.env.PUBLIC_URL (dev环境下是'', pro环境下与homepage一致)
-
-疑问：
-process.env.NODE_PATH
-process.env.PORT
-process.env.HOST
-process.env.HTTPS
-
-polify:
+2. polify:
 promise fetch Object.assign
 
-homepage:三种形式(一般不需要加)
-1. http://example.com 则所有资源路径都会是相对于该域名下的路径，如/static/js/xxxx
-2. http://example.com/app/project 则所有资源路径前加app/project， 如/app/project/static/js/xxxx
-3. '.' 则所有资源用相对位置, 如js: ./static/js/xxxx、css里引用的img: ../../img/xxx
+3. homepage:三种形式(一般不需要加)
+   * http://example.com 则所有资源路径都会是相对于该域名下的路径，如/static/js/xxxx
+   * http://example.com/app/project 则所有资源路径前加app/project， 如/app/project/static/js/xxxx
+   * '.' 则所有资源用相对位置, 如js: ./static/js/xxxx、css里引用的img: ../../img/xxx
 
-大部分业务场景是js,css,img都用不同的cdn地址：
-package.json里homepage不用配置
-修改config/paths.js里prodJsCDN、prodCssCDN、prodImgCDN地址
+4. 大部分业务场景是js,css,img都用不同的cdn地址：
+
+   package.json里homepage不用配置
+
+   修改config/paths.js里prodJsCDN、prodCssCDN、prodImgCDN地址
 
 
-tip: react-router 4
+## react-router 4
 
-  <Router>
+  ### <Router>
   只有一个属性history
 
   <switch>
