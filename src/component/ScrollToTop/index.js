@@ -3,6 +3,11 @@ import React from 'react';
 
 class ScrollToTop extends React.PureComponent {
     componentDidUpdate(prevProps) {
+
+        if (this.props.location.pathname === '/page5/list') {
+            return
+        }
+
         if (this.props.location !== prevProps.location) {
             window.scrollTo(0, 0)
         }

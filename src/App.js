@@ -11,6 +11,7 @@ import Page1 from './container/page1'
 import Page3 from 'bundle-loader?lazy&name=page3!./container/page3'
 import Page2 from './container/page2'
 import Page4 from './container/page4'
+import Page5 from './container/page5/index'
 import Home from './container/Home'
 
 import {
@@ -36,7 +37,7 @@ class App extends PureComponent {
                     <Switch>
                         <Route exact path="/" component={Home} />
                         <Route path="/page1/:type" component={Page1} />
-                        <Route path="/page3/" render={
+                        <Route path="/page3" render={
                             (props) => (
                                 <Bundle load={Page3}>
                                     {(Page3) => {
@@ -47,6 +48,7 @@ class App extends PureComponent {
                         } />
                         <Route path="/page2" exact strict component={Page2} />
                         <Route path="/page4" component={ Page4 }/>
+                        <Route path="/page5" component={ Page5 }/>
                         <Route render={ () => <p style={{background: 'grey'}}>404 not found</p> }/>
                     </Switch>
 
@@ -67,6 +69,9 @@ class App extends PureComponent {
                         </li>
                         <li>
                             <Link to={`/page4`}>to page4</Link>
+                        </li>
+                        <li>
+                            <Link to={`/page5`}>to page5</Link>
                         </li>
                     </ul>
 

@@ -14,6 +14,7 @@ const paths = require('./paths');
 const getClientEnvironment = require('./env');
 const CdnPathWebpackPlugin = require("html-webpack-cdn-path-plugin");
 const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
+const TestPlugin = require('../_webpack_plugin/TestPlugin')
 
 // Webpack uses `publicPath` to determine where the app is being served from.
 // It requires a trailing slash, or the file assets will get an incorrect path.
@@ -255,6 +256,7 @@ module.exports = {
         ],
     },
     plugins: [
+        new TestPlugin(),
         new CdnPathWebpackPlugin({
             runtimeCdnPath: [paths.prodJsCDN], // js动态生成<script src='xxxx'>
             assetsJsCdnPath: [paths.prodJsCDN], // html js路径替换

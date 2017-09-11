@@ -175,13 +175,13 @@ module.exports = {
                                     importLoaders: 2,
                                 },
                             },
-                            {
-                                loader: require.resolve('px2rem-loader'),
-                                options: {
-                                    remUnit: 37.5,
-                                    remPrecision: 2
-                                }
-                            },
+                            // {
+                            //     loader: require.resolve('px2rem-loader'),
+                            //     options: {
+                            //         remUnit: 37.5,
+                            //         remPrecision: 2
+                            //     }
+                            // },
                             {
                                 loader: require.resolve('postcss-loader'),
                                 options: {
